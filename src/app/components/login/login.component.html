@@ -4,7 +4,7 @@
       <h1>Login</h1>
       <form [formGroup]="loginInput" (ngSubmit)="onSubmit()">
         <div *ngIf="invalidForm" class="alert alert-danger" role="alert">
-          Completa todos los campos para enviar.
+          {{errorMessage}}
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email address</label>

@@ -1,1 +1,10 @@
-<p>home works!</p>
+<div class="team-container">
+  <app-heroes-team [teamHeroes]="heroes"></app-heroes-team>
+</div>
+<div>
+  <form [formGroup]="addHeroForm">
+    <button class="btn-primary btn" (click)="addHeroToTeam()"  [disabled]="addHeroForm.invalid">Add Hero</button>
+    <input formControlName="heroId" type="number" placeholder="HeroID">
+  </form>
+
+</div>

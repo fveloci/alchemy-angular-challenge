@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  API_URL: 'https://superheroapi.com/api/5216539211690568'
+  API_URL: 'https://superheroapi.com/api/5216539211690568',
+  AUTH_URL: 'http://challenge-react.alkemy.org',
+  API_PATH: '/api/5216539211690568'
 };
 
 /*

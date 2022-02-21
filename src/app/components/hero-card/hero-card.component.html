@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card__title">{{hero.name}}</div>
+  <div class="card__image">
+    <img src="{{hero.image.url}}" alt="{{hero.name}}">
+  </div>
+  <div class="card__stats">
+    <ul>
+      <li><b>Combat:</b> {{hero.powerstats.combat}}</li>
+      <li><b>Durability:</b> {{hero.powerstats.durability}}</li>
+      <li><b>Intelligence:</b> {{hero.powerstats.intelligence}}</li>
+      <li><b>Power:</b> {{hero.powerstats.power}}</li>
+      <li><b>Speed:</b> {{hero.powerstats.speed}}</li>
+      <li><b>Strength:</b> {{hero.powerstats.strength}}</li>
+    </ul>
+  </div>
+  <div class="card__actions">
+    <button class="btn btn-primary">Detail</button>
+    <button class="btn btn-danger" (click)="deleteHero(hero.id)">Delete</button>
+  </div>
+</div>
