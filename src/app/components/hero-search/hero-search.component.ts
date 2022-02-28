@@ -24,6 +24,7 @@ export class HeroSearchComponent implements OnInit {
   }
 
   searchHero() {
+    this.heroesFound = [];
     this.notFound = false;
     const name = this.heroSearch.get('name')!.value
     this.heroService.getHeroByName(name).subscribe({
