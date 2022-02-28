@@ -1,11 +1,33 @@
 <div class="team__container">
-  <h1>Team type: {{calculateTeamType()}}</h1>
-  <div>
-    <h2>Team info:</h2>
-    <p>Average Weigth: {{teamWeight | number: '1.0-0'}}</p>
-    <p>Average Height: {{teamHeight}}</p>
+  <h1>Team type: {{calculateTeamType() | uppercase}}</h1>
+  <h2>Team info:</h2>
+  <div class="team__info">
+    <div class="team__average">
+      <p>Average Weigth: {{teamWeight | number: '1.0-0'}}kg</p>
+      <p>Average Height: {{teamHeight | number: '1.0-0'}}cm</p>
+    </div>
+    <div class="team__powerstats">
+      <div class="row">
+        <div class="col">
+          <h3>Powerstats</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">Combat: </div><div class="col">{{teamType.combat}}</div>
+        <div class="col-3">Durability: </div><div class="col">{{teamType.durability}}</div>
+        <div class="col-3">Intelligence: </div><div class="col">{{teamType.intelligence}}</div>
+      </div>
+      <div class="row">
+        <div class="col-3">Power: </div><div class="col">{{teamType.power}}</div>
+        <div class="col-3">Speed: </div><div class="col">{{teamType.speed}}</div>
+        <div class="col-3">Strength: </div><div class="col">{{teamType.strength}}</div>
+      </div>
+    </div>
   </div>
   <div class="team__grid">
+    <div *ngIf="teamHeroes.length == 0" class="team__advice">
+      <h1>Add hero to team.</h1>
+    </div>
     <app-hero-card *ngFor="let hero of teamHeroes" [hero]="hero" (heroToDelete)="deleteHero($event)"></app-hero-card>
   </div>
 </div>

@@ -4,17 +4,93 @@
     <img src="{{hero.image.url}}" alt="{{hero.name}}">
   </div>
   <div class="card__stats">
-    <ul>
-      <li><b>Combat:</b> {{hero.powerstats.combat}}</li>
-      <li><b>Durability:</b> {{hero.powerstats.durability}}</li>
-      <li><b>Intelligence:</b> {{hero.powerstats.intelligence}}</li>
-      <li><b>Power:</b> {{hero.powerstats.power}}</li>
-      <li><b>Speed:</b> {{hero.powerstats.speed}}</li>
-      <li><b>Strength:</b> {{hero.powerstats.strength}}</li>
-    </ul>
+    <div class="row justify-content-start">
+
+      <!-- COMBAT -->
+      <div class="col-4">
+        <b>Combat:</b>
+      </div>
+      <div class="col-2">
+        {{hero.powerstats.combat}}
+      </div>
+
+      <!-- DURABILITY -->
+      <div class="col-4">
+        <b>Durability:</b>
+      </div>
+      <div class="col-2">
+        {{hero.powerstats.durability}}
+      </div>
+    </div>
+    <div class="row justify-content-evenly">
+
+      <!-- INTELIGENCE -->
+      <div class="col-4">
+        <b>Intelligence:</b>
+      </div>
+      <div class="col-2">
+        {{hero.powerstats.intelligence}}
+      </div>
+
+      <!-- POWER -->
+      <div class="col-4">
+        <b>Power:</b>
+      </div>
+      <div class="col-2">
+        {{hero.powerstats.power}}
+      </div>
+
+    </div>
+    <div class="row justify-content-evenly">
+
+      <!-- SPEED -->
+      <div class="col-4">
+        <b>Speed:</b>
+      </div>
+      <div class="col-2">
+        {{hero.powerstats.speed}}
+      </div>
+
+      <!-- STRENGTH -->
+      <div class="col-4">
+        <b>Strength:</b>
+      </div>
+      <div class="col-2">
+        {{hero.powerstats.strength}}
+      </div>
+    </div>
   </div>
   <div class="card__actions">
-    <button class="btn btn-primary">Detail</button>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Detail</button>
     <button class="btn btn-danger" (click)="deleteHero(hero.id)">Delete</button>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{hero.name}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <p><b>Weight:</b> {{hero.appearance.weight[1]}}</p>
+              <p><b>Height:</b> {{hero.appearance.height[1]}}</p>
+              <b>Alias:</b><ul><li *ngFor="let alias of hero.biography.aliases">{{alias}}</li></ul>
+              <p><b>Eye Color:</b> {{hero.appearance['eye-color']}}</p>
+              <p><b>Hair Color:</b> {{hero.appearance['hair-color']}}</p>
+              <p><b>Workplace:</b> {{hero.work.base}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
 </div>

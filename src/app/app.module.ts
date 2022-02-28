@@ -12,8 +12,8 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeroCardComponent } from './components/hero-card/hero-card.component';
-import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
 import { HeroesTeamComponent } from './components/heroes-team/heroes-team.component';
+import { HeroSearchComponent } from './components/hero-search/hero-search.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +23,8 @@ import { HeroesTeamComponent } from './components/heroes-team/heroes-team.compon
     NavbarComponent,
     FooterComponent,
     HeroCardComponent,
-    HeroDetailComponent,
-    HeroesTeamComponent
+    HeroesTeamComponent,
+    HeroSearchComponent
   ],
   imports: [
     BrowserModule,

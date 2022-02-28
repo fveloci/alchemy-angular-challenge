@@ -1,9 +1,9 @@
 export interface Biography {
-  full_name: string;
-  alter_egos: string;
+  'full-name': string;
+  'alter-egos': string;
   aliases: string[];
-  place_of_birth: string;
-  first_appearance: string;
+  'place-of-birth': string;
+  'first-appearance': string;
   publisher: string;
   alignment: string;
 }

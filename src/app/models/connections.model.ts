@@ -1,4 +1,4 @@
 export interface Connections {
-  group_affiliation: string;
+  'group-affiliation': string;
   relatives: string;
 }

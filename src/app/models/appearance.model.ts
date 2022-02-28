@@ -3,6 +3,6 @@ export interface Appearance {
   race: string;
   height: string[];
   weight: string[];
-  eye_color: string;
-  hair_color: string;
+  'eye-color': string;
+  'hair-color': string;
 }

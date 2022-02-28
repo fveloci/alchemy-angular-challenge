@@ -12,19 +12,17 @@ export class HeroesTeamComponent implements OnInit {
   teamPower: any;
   teamHeight: number = 0;
   teamWeight: number = 0;
-  teamType: string = 'Intelligence'
+  teamType =  {
+    "combat": 0,
+    "intelligence": 0,
+    "speed": 0,
+    "durability": 0,
+    "power": 0,
+    "strength": 0
+  }
 
   constructor() { }
   ngOnInit(): void {
-    console.log(this.teamHeroes)
-    this.teamPower = {
-      combat: 0,
-      intelligence: 0,
-      speed: 0,
-      durability: 0,
-      power: 0,
-      strength: 0
-    }
   }
 
   deleteHero(id: string) {
@@ -33,15 +31,29 @@ export class HeroesTeamComponent implements OnInit {
   }
 
   calculateTeamType() {
+    let teamType = {
+      combat: 0,
+      intelligence: 0,
+      speed: 0,
+      durability: 0,
+      power: 0,
+      strength: 0
+    }
     this.teamHeroes.forEach(hero => {
-      this.teamPower.combat += +hero.powerstats.combat
-      this.teamPower.intelligence += +hero.powerstats.intelligence
-      this.teamPower.speed += +hero.powerstats.speed
-      this.teamPower.durability += +hero.powerstats.durability
-      this.teamPower.power += +hero.powerstats.power
-      this.teamPower.strength += +hero.powerstats.strength
+      hero.powerstats.combat !== "null" ?  teamType.combat += +hero.powerstats.combat : teamType.combat
+      hero.powerstats.intelligence !== "null" ?  teamType.intelligence += +hero.powerstats.intelligence : teamType.intelligence
+      hero.powerstats.speed !== "null" ?  teamType.speed += +hero.powerstats.speed : teamType.speed
+      hero.powerstats.durability !== "null" ?  teamType.durability += +hero.powerstats.durability : teamType.durability
+      hero.powerstats.power !== "null" ?  teamType.power += +hero.powerstats.power : teamType.power
+      hero.powerstats.strength !== "null" ?  teamType.strength += +hero.powerstats.strength : teamType.strength
     })
+    this.teamType = teamType
     this.calculateTeamHeightAndWeight();
+    return this.getMaxValueKey(teamType)
+  }
+
+  getMaxValueKey(obj: {[key: string]: number}): string {
+    return Object.keys(obj).reduce((a, b) => obj[a] > obj[b] ? a : b)
   }
 
   calculateTeamHeightAndWeight() {
