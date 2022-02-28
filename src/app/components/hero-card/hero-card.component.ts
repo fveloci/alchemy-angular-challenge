@@ -1,5 +1,6 @@
 import { Hero } from 'src/app/models/hero.model';
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+
 
 @Component({
   selector: 'app-hero-card',
@@ -14,10 +15,13 @@ export class HeroCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
   deleteHero(id: string) {
     this.heroToDelete.emit(id);
   }
-
+  destroyModal() {
+    let modal = document.getElementById('exampleModal')
+  }
 }

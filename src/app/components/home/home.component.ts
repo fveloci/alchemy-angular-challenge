@@ -35,15 +35,26 @@ export class HomeComponent implements OnInit {
     })
   }
   addHeroToTeam(newHero: Hero) {
+    const goodHeroes = this.heroes.filter(hero => hero.biography.alignment === 'good')
+    const badHeroes = this.heroes.filter(hero => hero.biography.alignment === 'bad' || hero.biography.alignment === 'neutral')
 
+    if(newHero.biography.alignment === 'bad' && badHeroes.length == 3) {
+      alert('You can´t add more than 3 bad heroes')
+      return;
+    }
+    if(newHero.biography.alignment === 'good' && goodHeroes.length == 3) {
+      alert('You can´t add more than 3 good heroes')
+      return;
+    }
     if(this.heroes.some(hero => hero.id == newHero.id)) {
-      alert('Este heroe ya existe')
+      alert('This hero is actually in your team')
       return
     }
     if(this.heroes.length == 6) {
-      alert('No se pueden añadir mas heroes')
-    } else {
-      this.heroes.push(newHero)
+      alert('You can´t add more than 6 heroes')
+      return
     }
+    this.heroes.push(newHero)
+
   }
 }
