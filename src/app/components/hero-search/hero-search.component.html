@@ -1,0 +1,35 @@
+<div class="row justify-content-center mt-5">
+  <div class="col">
+    <h2>Hero search</h2>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col">
+    <form [formGroup]="heroSearch">
+      <div class="mb-1">
+        <input
+          placeholder="Enter hero name to search"
+          type="text"
+          class="form-control"
+          id="name"
+          formControlName="name"
+        />
+      </div>
+      <button (click)="searchHero()" class="btn btn-primary" [disabled]="heroSearch.invalid">Search</button>
+    </form>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col hero__search__grid">
+    <div class="card" *ngFor="let hero of heroesFound" style="width: 18rem;">
+      <img src="{{hero.image.url}}" class="card-img-top" alt="{{hero.name}}">
+      <div class="card-body">
+        <h5 class="card-title">{{hero.name}}</h5>
+        <button class="btn btn-success" (click)="addHeroToTeam(hero)">Add hero to team</button>
+      </div>
+    </div>
+    <div *ngIf="notFound" class="alert alert-danger" role="alert">
+      Hero not found, please use another hero name
+    </div>
+  </div>
+</div>

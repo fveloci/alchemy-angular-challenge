@@ -1,0 +1,6 @@
+<div class="team-container">
+  <app-heroes-team [teamHeroes]="heroes"></app-heroes-team>
+</div>
+<div class="container">
+  <app-hero-search (heroToTeam)="addHeroToTeam($event)"></app-hero-search>
+</div>
